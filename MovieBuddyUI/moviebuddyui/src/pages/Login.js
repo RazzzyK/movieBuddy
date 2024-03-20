@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import MovieBuddyClient from '../client/MovieBuddyClient';
-import { setAuthHeader, request } from '../client/axios_helper';
+import Test from '../client/RapidAPI';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -26,26 +26,6 @@ const Login = () => {
     console.log(`Logging in with username: ${username} and password: ${password}`);
   };
 
-  const onLogin = (e, username, password) => {
-    e.preventDefault();
-    request(
-        "POST",
-        "/getuname",
-        {
-            login: username,
-            password: password
-        }).then(
-        (response) => {
-            setAuthHeader(response.data.token);
-            this.setState({componentToShow: "messages"});
-        }).catch(
-        (error) => {
-            setAuthHeader(null);
-            this.setState({componentToShow: "welcome"})
-        }
-    );
-  };
-
   return (
     <div>
       <h2>Login</h2>
@@ -60,7 +40,7 @@ const Login = () => {
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </label>
         <br />
-        <button type="button" onClick={handleLogin}>Login</button>
+        <button type="button" onClick={MovieBuddyClient}>Login</button>
       </form>
     </div>
   );

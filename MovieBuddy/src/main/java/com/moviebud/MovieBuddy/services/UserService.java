@@ -1,22 +1,24 @@
 package com.moviebud.MovieBuddy.services;
 
-import com.moviebud.MovieBuddy.models.Buddy;
-import com.moviebud.MovieBuddy.repositories.BuddyRepository;
+import com.moviebud.MovieBuddy.models.User;
+import com.moviebud.MovieBuddy.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BuddyService {
+public class UserService {
 
-    private final BuddyRepository buddyRepository;
+    private final UserRepository buddyRepository;
 
     @Autowired
-    BuddyService(BuddyRepository buddyRepository) {
+    UserService(UserRepository buddyRepository) {
         this.buddyRepository = buddyRepository;
     }
 
-    public void registerBuddy(Buddy buddy) {
-        buddyRepository.save(buddy);
+    public User registerUser(User user) {
+
+
+        return buddyRepository.save(user);
 
 //        userRepository.save(user);
 //        Profile profile = new Profile();
