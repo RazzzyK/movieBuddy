@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import MovieBuddyClient from '../client/MovieBuddyClient';
+import { loginUser } from '../client/AxiosClient';
 import Test from '../client/RapidAPI';
 
 const Login = () => {
@@ -10,14 +10,14 @@ const Login = () => {
     // Implement your login logic here
     try {
         const data = {
-          username: username,
+          email: username,
           password: password,
           // Add other data properties as needed
         };
   
-        const response = await MovieBuddyClient(data);
+        const response = await loginUser(data);
         // Handle the response or update the component state as needed
-        console.log('Login successful:', response.data);
+        console.log('Login successful:', response); //Response contains JWT
       } catch (error) {
         // Handle the error
         console.error('Login failed:', error.message);
@@ -40,7 +40,7 @@ const Login = () => {
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         </label>
         <br />
-        <button type="button" onClick={MovieBuddyClient}>Login</button>
+        <button type="button" onClick={handleLogin}>Login</button>
       </form>
     </div>
   );

@@ -1,11 +1,13 @@
 import './App.css';
 import Login from './pages/Login';
+import RegistrationForm from './pages/Registration';
 
 function App() {
   return (
-    <div className="App">
-      <Login />
-    </div>
+    <div>
+      {/* <RegistrationForm/> */}
+            <Login/>
+        </div>
   );
 }
 

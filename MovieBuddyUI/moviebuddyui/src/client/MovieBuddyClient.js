@@ -2,16 +2,15 @@ import axios from 'axios';
 
 const MovieBuddyClient = async (data) => {
   try {
-    const response = await axios.get('http://localhost:8080/api/v1/getuname', {
-      auth: {
-        username: 'user',
-        password: '2ac11d43-7036-4185-a252-b770b3b1f02f'
-      }
+    var tkn = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QHVzZXIuY29tIiwiaWF0IjoxNzEwOTMzMzI0LCJleHAiOjE3MTA5MzQ3NjR9.OR86hblInZ1ze24RjI6b0SrPNmToTH2LFxQPXM3D7Ac'
+    const headers = { 'Authorization': 'Bearer ' +tkn };
+    const response = await axios.get('http://localhost:8080/api/v1/demo/getuname', {
+      headers
     })
     .then(response => {
-      console.log('Response from the backend:', response.message);
+      console.log('Response from the backend:', response.data);
     })
-    
+    console.log(response.data.message)
     return response.data; // You can return the data if needed
   } catch (error) {
     console.error('Error sending data to the backend:', error.message);

@@ -1,5 +1,9 @@
 package com.moviebud.MovieBuddy.controllers;
 
+import com.moviebud.MovieBuddy.auth.AuthenticationController;
+import com.moviebud.MovieBuddy.auth.AuthenticationRequest;
+import com.moviebud.MovieBuddy.auth.AuthenticationResponse;
+import com.moviebud.MovieBuddy.auth.RegisterRequest;
 import com.moviebud.MovieBuddy.models.User;
 import com.moviebud.MovieBuddy.services.UserService;
 import org.slf4j.Logger;
@@ -10,13 +14,16 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/demo")
+@CrossOrigin("*")
 public class Controller {
 
     public Logger log = LoggerFactory.getLogger(Controller.class);
+    private final AuthenticationController authenticationController;
     private final UserService userService;
 
     @Autowired
-    public Controller(UserService userService) {
+    public Controller(AuthenticationController authenticationController, UserService userService) {
+        this.authenticationController = authenticationController;
         this.userService = userService;
     }
 
@@ -40,9 +47,22 @@ public class Controller {
     @PostMapping(path = "register")
     public ResponseEntity<User> register(@RequestBody User u) {
         log.info("POST Mapping attempting to register a user to Database\n");
-        User registered = userService.registerUser(u);
+        ResponseEntity<AuthenticationResponse> tkn = authenticationController.register(
+                new RegisterRequest(
+                        u.getFirstname(),
+                        u.getLastname(),
+                        u.getUsername(),
+                        u.getPassword())
+        );
 
-        return ResponseEntity.ok(registered);
+        if(tkn.getStatusCode().is2xxSuccessful())
+            return ResponseEntity.ok().build();
+        else
+            return ResponseEntity.badRequest().build();
+
+//        User registered = userService.registerUser(u);
+//
+//        return ResponseEntity.ok(registered);
     }
 
 }
