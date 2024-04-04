@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { loginUser } from '../client/AxiosClient';
 import Test from '../client/RapidAPI';
 
-const Login = () => {
+export const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -46,4 +46,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+// export default Login;
