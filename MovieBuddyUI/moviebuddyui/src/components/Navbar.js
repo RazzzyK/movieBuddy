@@ -63,13 +63,13 @@ export const Navbar = () => {
         <nav className="side-navbar">
         
             <Link exact to="/" className={activeLink === '/' ? 'active' : ''}>
-              <li className="nav-item">Home</li>
+              <li className="nav-item">Movie Buddy</li>
             </Link>
+            {/* <Link to="/login" className={activeLink === '/login' ? 'active' : ''}>
+              <li className="nav-item"></li>
+            </Link> */}
             <Link to="/login" className={activeLink === '/login' ? 'active' : ''}>
-              <li className="nav-item">Login</li>
-            </Link>
-            <Link to="/register" className={activeLink === '/register' ? 'active' : ''}>
-              <li className="nav-item">Register</li>
+              <li className="nav-item">Login/Sign Up</li>
             </Link>
             <Link to="/">
               <li className="nav-item-right">About</li>

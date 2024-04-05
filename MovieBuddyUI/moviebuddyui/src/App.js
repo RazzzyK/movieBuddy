@@ -9,6 +9,7 @@ import {store, persistor} from './redux/Store';
 
 function App() {
   return (
+    <div className='App'>
     <Provider store={store}>
       <BrowserRouter>
       
@@ -16,11 +17,12 @@ function App() {
         <Routes>
           
             <Route index element={<Homepage />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Register />} />
+            {/* <Route path="/register" element={<Register />} /> */}
         </Routes>
       </BrowserRouter>
     </Provider>
+    </div>
   );
 }
 
