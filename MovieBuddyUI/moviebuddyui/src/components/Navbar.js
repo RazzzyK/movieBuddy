@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import '../CSS/SideNavBar.css'; // Import the CSS file for the component
+import '../css/Navbar.css'; // Import the CSS file for the component
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { logout } from '../redux/Actions';
 import { ToastContainer, toast } from 'react-toastify';
@@ -61,7 +61,7 @@ export const Navbar = () => {
         </nav>
       ) : (
         <nav className="side-navbar">
-          <ul>
+        
             <Link exact to="/" className={activeLink === '/' ? 'active' : ''}>
               <li className="nav-item">Home</li>
             </Link>
@@ -72,15 +72,15 @@ export const Navbar = () => {
               <li className="nav-item">Register</li>
             </Link>
             <Link to="/">
-              <li className="nav-item">About</li>
+              <li className="nav-item-right">About</li>
             </Link>
             <Link to="/">
-              <li className="nav-item">Espanol</li>
+              <li className="nav-item-right">Espanol</li>
             </Link>
             <Link to="/contact" className={activeLink === '/contact' ? 'active' : ''}>
-              <li className="nav-item">Contact</li>
+              <li className="nav-item-right">Contact</li>
             </Link>
-          </ul>
+         
         </nav>
       )};
     </div>
