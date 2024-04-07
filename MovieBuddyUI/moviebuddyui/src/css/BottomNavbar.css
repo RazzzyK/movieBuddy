@@ -1,0 +1,47 @@
+
+
+.bottom-navbar {
+  position: fixed;
+  /* position: relative; */
+  /* z-index: 1; */
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(51, 51, 51, 0.4);
+  text-align: center;
+
+  /* Prevent text selection */
+  user-select: none;
+  -moz-user-select: none; /* Firefox */
+  -webkit-user-select: none; /* Chrome, Safari, Opera */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.navbar-links {
+  display: flex;
+  flex-direction: column; /* Display navbar links in a column */
+  align-items: center; /* Center content horizontally */
+}
+
+.navbar-links ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 5px;
+}
+
+.navbar-links ul li {
+  display: inline-block;
+  margin: 4px; /* Add margin between navbar links */
+}
+
+.navbar-links ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 3px; /* Add padding to create clickable area */
+  font-size: 12px;
+}
+
+.copyright p {
+  color: white;
+  font-size: 12px;
+  margin-top: 4px; /* Adjust margin to create space between links and copyright */
+}

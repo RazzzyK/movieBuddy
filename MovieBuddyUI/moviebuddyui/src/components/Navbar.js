@@ -65,9 +65,6 @@ export const Navbar = () => {
             <Link exact to="/" className={activeLink === '/' ? 'active' : ''}>
               <li className="nav-item">Movie Buddy</li>
             </Link>
-            {/* <Link to="/login" className={activeLink === '/login' ? 'active' : ''}>
-              <li className="nav-item"></li>
-            </Link> */}
             <Link to="/login" className={activeLink === '/login' ? 'active' : ''}>
               <li className="nav-item">Login/Sign Up</li>
             </Link>

@@ -1,13 +1,70 @@
 import React from 'react';
-import { Navbar } from '../components/Navbar';
+import '../css/Movie.css';
 
-function Homepage({ handleLogin, handleRegister }) {
+export const Homepage = ({ handleLogin, handleRegister }) => {
     return (
         <div>
-            <h1>Welcome to Home Page</h1>
+            <h1>Welcome to Movie Buddy!</h1>
             {/* Add content here */}
+
+            <div class="movie-posters">
+                <div class="movie-poster">
+                    <img src={require('../images/movie1.jpeg')} alt="Movie 1" />
+                </div>
+                <div class="movie-poster">
+                    <img src={require('../images/movie1.jpeg')} alt="Movie 2" />
+                </div>
+                <div class="movie-poster">
+                    <img src={require('../images/movie1.jpeg')} alt="Movie 1" />
+                </div>
+                <div class="movie-poster">
+                    <img src={require('../images/movie1.jpeg')} alt="Movie 2" />
+                </div>
+                <div class="movie-poster">
+                    <img src={require('../images/movie1.jpeg')} alt="Movie 1" />
+                </div>
+                <div class="movie-poster">
+                    <img src={require('../images/movie1.jpeg')} alt="Movie 2" />
+                </div>
+                <div class="movie-poster">
+                    <img src={require('../images/movie1.jpeg')} alt="Movie 1" />
+                </div>
+                <div class="movie-poster">
+                    <img src={require('../images/movie1.jpeg')} alt="Movie 2" />
+                </div>
+                <div class="movie-poster">
+                    <img src={require('../images/movie1.jpeg')} alt="Movie 1" />
+                </div>
+                <div class="movie-poster">
+                    <img src={require('../images/movie1.jpeg')} alt="Movie 2" />
+                </div>
+                <div class="movie-poster">
+                    <img src={require('../images/movie1.jpeg')} alt="Movie 1" />
+                </div>
+                <div class="movie-poster">
+                    <img src={require('../images/movie1.jpeg')} alt="Movie 2" />
+                </div>
+                <div class="movie-poster">
+                    <img src={require('../images/movie1.jpeg')} alt="Movie 1" />
+                </div>
+                <div class="movie-poster">
+                    <img src={require('../images/movie1.jpeg')} alt="Movie 2" />
+                </div>
+                <div class="movie-poster">
+                    <img src={require('../images/movie1.jpeg')} alt="Movie 1" />
+                </div>
+                <div class="movie-poster">
+                    <img src={require('../images/movie1.jpeg')} alt="Movie 2" />
+                </div>
+                <div class="movie-poster">
+                    <img src={require('../images/movie1.jpeg')} alt="Movie 1" />
+                </div>
+                <div class="movie-poster">
+                    <img src={require('../images/movie1.jpeg')} alt="Movie 2" />
+                </div>
+            </div>
         </div>
+
+        
     );
 }
-
-export default Homepage;
