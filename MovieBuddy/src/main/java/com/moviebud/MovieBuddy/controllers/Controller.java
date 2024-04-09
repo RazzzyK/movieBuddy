@@ -4,13 +4,17 @@ import com.moviebud.MovieBuddy.auth.AuthenticationController;
 import com.moviebud.MovieBuddy.auth.AuthenticationRequest;
 import com.moviebud.MovieBuddy.auth.AuthenticationResponse;
 import com.moviebud.MovieBuddy.auth.RegisterRequest;
+import com.moviebud.MovieBuddy.models.Movie;
 import com.moviebud.MovieBuddy.models.User;
+import com.moviebud.MovieBuddy.services.MovieService;
 import com.moviebud.MovieBuddy.services.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/demo")
@@ -21,10 +25,13 @@ public class Controller {
     private final AuthenticationController authenticationController;
     private final UserService userService;
 
+    private final MovieService movieService;
+
     @Autowired
-    public Controller(AuthenticationController authenticationController, UserService userService) {
+    public Controller(AuthenticationController authenticationController, UserService userService, MovieService movieService) {
         this.authenticationController = authenticationController;
         this.userService = userService;
+        this.movieService = movieService;
     }
 
     @GetMapping(path = "getuname")
@@ -63,6 +70,23 @@ public class Controller {
 //        User registered = userService.registerUser(u);
 //
 //        return ResponseEntity.ok(registered);
+    }
+
+    @PostMapping(path = "recievemovies")
+    public void receiveMovies(@RequestBody List<Movie> movies) { //
+        // Handle the received movies
+        // For example, you can save them to a database or perform other operations
+        System.out.println(movies.get(0));
+//        System.out.println("Received movies: " + movies.get(1));
+
+        System.out.println(movieService.saveMovies(movies));
+    }
+
+    @GetMapping(path = "getmovies")
+    public ResponseEntity<List<Movie>> getMovies() {
+        return ResponseEntity.ok(movieService.getAllMovies());
+
+
     }
 
 }

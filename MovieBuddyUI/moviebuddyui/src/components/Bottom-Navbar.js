@@ -22,28 +22,28 @@ export const Bottom_Navbar = () => {
             <div className='navbar-links'>
               <ul>
                 <li>
-                    <Link to="/" exact>
-                        <a>Home</a>
+                    <Link to="/" exact="true">
+                        Home
                     </Link>
                 </li>
                 <li>
                     <Link to="/login">
-                        <a>Login/Sign Up</a>
+                        Login/Sign Up
                     </Link>
                 </li>
                 <li>
                     <Link to="/">
-                        <a>About</a>
+                        About
                     </Link>
                 </li>
                 <li>
                     <Link to="/">
-                        <a>Espanol</a>
+                        Espanol
                     </Link>
                 </li>
                 <li>
                     <Link to="/contact">
-                        <a>Contact</a>
+                        Contact
                     </Link>
                 </li>
               </ul>

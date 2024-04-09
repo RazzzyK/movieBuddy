@@ -20,4 +20,18 @@ const loginUser = async (credentials) => {
     }
 };
 
-export { registerUser, loginUser };
+const getMovies = async () => {
+    try {
+        const response = await axios.get('http://localhost:8080/api/v1/demo/getmovies', {
+            headers: {
+                'Authorization' : `Bearer ${localStorage.getItem('jwt')}`
+              }
+        })
+        return response.data;
+    } catch (error) {
+            throw error;
+    }
+}
+
+
+export { registerUser, loginUser, getMovies };

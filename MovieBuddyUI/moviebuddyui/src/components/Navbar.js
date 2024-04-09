@@ -5,6 +5,8 @@ import { NavLink, Link, useLocation } from 'react-router-dom';
 import { logout } from '../redux/Actions';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { getTop100 } from '../client/RapidAPI';
+import { getMovies, getMyArray } from '../client/Helper';
 
 
 
@@ -69,13 +71,16 @@ export const Navbar = () => {
               <li className="nav-item">Login/Sign Up</li>
             </Link>
             <Link to="/">
-              <li className="nav-item-right">About</li>
+              <li className="nav-item-right" onClick={getTop100}>About</li>
             </Link>
             <Link to="/">
               <li className="nav-item-right">Espanol</li>
             </Link>
             <Link to="/contact" className={activeLink === '/contact' ? 'active' : ''}>
               <li className="nav-item-right">Contact</li>
+            </Link>
+            <Link to="/test">
+              <li className="nav-item-right" onClick={getMyArray}>Test Endpoint</li>
             </Link>
          
         </nav>

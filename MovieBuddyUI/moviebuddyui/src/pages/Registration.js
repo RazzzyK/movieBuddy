@@ -19,12 +19,13 @@ function RegistrationForm() {
 
     const handleRegister = async (event) => {
         event.preventDefault();
-        console.log(formData);
+        // console.log(formData);
         var res = registerUser(formData);
-        console.log(res);
+        // console.log(res);
     };
 
-    const handleLogin = async () => {
+    const handleLogin = async (event) => {
+        event.preventDefault();
         // Implement your login logic here
         try {
             const data = {
@@ -32,16 +33,20 @@ function RegistrationForm() {
               password: password,
               // Add other data properties as needed
             };
-      
             const response = await loginUser(data);
             // Handle the response or update the component state as needed
-            console.log('Login successful:', response); //Response contains JWT
+            console.log('Login successful: ', response.token); //Response contains JWT
+
+            localStorage.setItem('jwt', response.token); //Using local storage to save jwt that si returned
+
+            //const userObject = response.data;
+            //dispatch(setUser(userObject));
+
           } catch (error) {
             // Handle the error
             console.error('Login failed:', error.message);
           }
       
-        console.log(`Logging in with username: ${username} and password: ${password}`);
       };
 
     return (
@@ -73,9 +78,9 @@ function RegistrationForm() {
             <div className="main">  	
                 <input type="checkbox" id="chk" aria-hidden="true" />
 
-                <div class="signup">
+                <div className="signup">
                     <form onSubmit={handleLogin}>
-                        <label for="chk" aria-hidden="true">Login</label>
+                        <label htmlFor="chk" aria-hidden="true">Login</label>
                         <input type="email" name="email" placeholder="Email" required="" value={username} onChange={(e) => setUsername(e.target.value)}/>
                         <input type="password" name="pswd" placeholder="Password" required="" value={password} onChange={(e) => setPassword(e.target.value)}/>
                         <button type='submit'>Login</button>
@@ -84,7 +89,7 @@ function RegistrationForm() {
 
                 <div className="login">
                     <form onSubmit={handleRegister}>
-                        <label for="chk" aria-hidden="true">Sign up</label>
+                        <label htmlFor="chk" aria-hidden="true">Sign up</label>
                         <input type="text" id="firstname" name="firstname" placeholder="First name" required=""value={formData.firstname} onChange={handleInputChange} />
                         <input type="text" id="lastname" name="lastname" placeholder="Last name" required=""value={formData.lastname} onChange={handleInputChange} />
                         <input type="email" id="email" name="email" placeholder="Email" required=""value={formData.email} onChange={handleInputChange} />

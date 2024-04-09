@@ -1,9 +1,12 @@
 package com.moviebud.MovieBuddy.services;
 
+import com.moviebud.MovieBuddy.models.Movie;
 import com.moviebud.MovieBuddy.models.User;
 import com.moviebud.MovieBuddy.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserService {
