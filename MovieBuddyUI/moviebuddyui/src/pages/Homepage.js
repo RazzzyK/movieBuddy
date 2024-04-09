@@ -10,57 +10,6 @@ export const Homepage = ({ handleLogin, handleRegister }) => {
             
             <div className="movie-posters">
                 <div className="movie-poster">
-                    <img src={require('../images/movie1.jpeg')} alt="Movie 1" />
-                </div>
-                <div className="movie-poster">
-                    <img src={require('../images/movie1.jpeg')} alt="Movie 2" />
-                </div>
-                <div className="movie-poster">
-                    <img src={require('../images/movie1.jpeg')} alt="Movie 1" />
-                </div>
-                <div className="movie-poster">
-                    <img src={require('../images/movie1.jpeg')} alt="Movie 2" />
-                </div>
-                <div className="movie-poster">
-                    <img src={require('../images/movie1.jpeg')} alt="Movie 1" />
-                </div>
-                <div className="movie-poster">
-                    <img src={require('../images/movie1.jpeg')} alt="Movie 2" />
-                </div>
-                <div className="movie-poster">
-                    <img src={require('../images/movie1.jpeg')} alt="Movie 1" />
-                </div>
-                <div className="movie-poster">
-                    <img src={require('../images/movie1.jpeg')} alt="Movie 2" />
-                </div>
-                <div className="movie-poster">
-                    <img src={require('../images/movie1.jpeg')} alt="Movie 1" />
-                </div>
-                <div className="movie-poster">
-                    <img src={require('../images/movie1.jpeg')} alt="Movie 2" />
-                </div>
-                <div className="movie-poster">
-                    <img src={require('../images/movie1.jpeg')} alt="Movie 1" />
-                </div>
-                <div className="movie-poster">
-                    <img src={require('../images/movie1.jpeg')} alt="Movie 2" />
-                </div>
-                <div className="movie-poster">
-                    <img src={require('../images/movie1.jpeg')} alt="Movie 1" />
-                </div>
-                <div className="movie-poster">
-                    <img src={require('../images/movie1.jpeg')} alt="Movie 2" />
-                </div>
-                <div className="movie-poster">
-                    <img src={require('../images/movie1.jpeg')} alt="Movie 1" />
-                </div>
-                <div className="movie-poster">
-                    <img src={require('../images/movie1.jpeg')} alt="Movie 2" />
-                </div>
-                <div className="movie-poster">
-                    <img src={require('../images/movie1.jpeg')} alt="Movie 1" />
-                </div>
-                <div className="movie-poster">
                     <img src="https://m.media-amazon.com/images/M/MV5BMTY4NzcwODg3Nl5BMl5BanBnXkFtZTcwNTEwOTMyMw@@._V1_QL75_UX380_CR0,0,380,562_.jpg" alt="Movie 2" />
                 </div>
             </div>
