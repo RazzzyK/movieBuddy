@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../css/BottomNavbar.css'; // Import the CSS file for the component
-import { NavLink, Link, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 
 export const Bottom_Navbar = () => {
@@ -10,7 +10,7 @@ export const Bottom_Navbar = () => {
     useEffect(() => {
       // Extract the path name from the current location
       const pathname = location.pathname;
-      console.log(pathname);
+      // console.log(pathname);
       // Update the active link based on the current path name
       setActiveLink(pathname);
 

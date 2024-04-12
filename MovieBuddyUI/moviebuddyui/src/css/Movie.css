@@ -7,20 +7,69 @@
 
   }
   
-  .movie-poster {
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 200px; /* Set the width of the movie poster container */
-    height: auto; /* Maintain aspect ratio */
-  }
-  
-  .movie-poster img {
-    width: 200px;
-    height: auto;
-    transition: transform 0.3s ease;
-  }
-  
-  .movie-poster:hover img {
-    transform: scale(1.1);
-  }
+.movie-poster {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 200px; /* Set the width of the movie poster container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.movie-poster img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.movie-poster:hover img {
+  transform: scale(.99);
+}
+
+.watched-btn {
+    position: absolute;
+    top: 0;
+    right: 2px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 5px; /* Rounded corners, adjust as needed */
+    padding: 1px 5px; /* Add padding for spacing inside the button */
+    cursor: pointer;
+    z-index: 1; /* Ensure the button is above the poster */
+    font-size: 12px; /* Decrease font size to make the text smaller */
+    height: 25px;
+    width: auto; /* Allow the button width to adjust based on content */
+}
+
+.watched-btn:hover {
+  background-color: rgba(0, 0, 0, 0.6); /* Change color on hover if desired */
+}
+
+.watched-btn.watched {
+  background-color: green;
+}
+
+.pending-btn {
+  position: absolute;
+  bottom: 0;
+  left: 2px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 5px; /* Rounded corners, adjust as needed */
+  padding: 1px 5px; /* Add padding for spacing inside the button */
+  cursor: pointer;
+  z-index: 1; /* Ensure the button is above the poster */
+  font-size: 12px; /* Decrease font size to make the text smaller */
+  height: 25px;
+  width: auto; /* Allow the button width to adjust based on content */
+}
+
+.pending-btn:hover {
+background-color: rgba(0, 0, 0, 0.6); /* Change color on hover if desired */
+}
+
+.pending-btn.pending {
+background-color: rgba(231, 219, 0, 0.75);
+}

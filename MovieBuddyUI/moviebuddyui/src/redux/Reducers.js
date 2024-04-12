@@ -2,12 +2,8 @@
 const initialState = {
     isLoggedIn: false,
     user: {
-        firstName: '',
-        lastName: '',
         email: '',
-        checkingAccount: '',
-        savingsAccount: '',
-        creditcard: ''
+        jwt: ''
     }
 };
 
@@ -28,17 +24,12 @@ function rootReducer(state = initialState, action) {
             };
 
         case 'LOGOUT':
-            sessionStorage.clear()
             return {
                 ...state,
                 isLoggedIn: false,
                 user: {
-                    firstName: '',
-                    lastName: '',
                     email: '',
-                    checkingAccount: '',
-                    savingsAccount: '',
-                    creditcard: ''
+                    jwt: ''
                 },
             };
         default:
