@@ -3,7 +3,7 @@ import '../css/BottomNavbar.css'; // Import the CSS file for the component
 import { Link, useLocation } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 
-export const Bottom_Navbar = () => {
+export const BottomNavbar = () => {
     const [activeLink, setActiveLink] = useState('home');
     const location = useLocation();
     

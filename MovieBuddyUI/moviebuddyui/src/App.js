@@ -3,10 +3,13 @@ import Register from './pages/Registration';
 import { Homepage } from './pages/Homepage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
-import { Bottom_Navbar } from './components/BottomNavbar';
+import { BottomNavbar } from './components/BottomNavbar';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import {store, persistor} from './redux/Store';
+import { UserSettings } from './pages/Settings';
+import { Pendingpage } from './pages/Pendingpage';
+import { Watchedpage } from './pages/Watchedpage';
 
 function App() {
   return (
@@ -18,8 +21,11 @@ function App() {
               <Routes>              
                   <Route index element={<Homepage />} />
                   <Route path="/login" element={<Register />} />
+                  <Route path='/settings' element={<UserSettings />} />
+                  <Route path='/pending' element={<Pendingpage />} />
+                  <Route path='/watched' element={<Watchedpage />} />
               </Routes>
-            <Bottom_Navbar />
+            <BottomNavbar />
           </BrowserRouter>
         </PersistGate>
       </Provider>

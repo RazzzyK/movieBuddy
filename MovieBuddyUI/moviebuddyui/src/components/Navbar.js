@@ -3,24 +3,34 @@ import { useSelector, useDispatch } from 'react-redux';
 import '../css/Navbar.css'; // Import the CSS file for the component
 import { Link, useLocation } from 'react-router-dom';
 import { logout } from '../redux/Actions';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-
+import { setWatchedList, setPendingList } from '../redux/Reducers';
 import 'react-toastify/dist/ReactToastify.css';
+import { persistLogout } from '../client/AxiosClient';
 
 export const Navbar = () => {
-  const isLoggedIn = useSelector((state) => state.isLoggedIn);
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const [activeLink, setActiveLink] = useState('/');
   const dispatch = useDispatch();
   const location = useLocation();
   const navigate = useNavigate();
-
+  const watchedList = useSelector((state) => state.watchedList);
+  const pendingList = useSelector((state) => state.pendingList);
+  
+  const backendObj = {
+    watchedList,
+    pendingList
+  };
 
   // Function to handle user logout
   const handleLogout = (event) => {
     event.preventDefault();
     navigate('/');
     localStorage.clear();
+    persistLogout(backendObj);
+    dispatch(setWatchedList([]));
+    dispatch(setPendingList([]));
     dispatch(logout());
   };
 

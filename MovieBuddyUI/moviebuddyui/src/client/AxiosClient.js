@@ -1,4 +1,7 @@
+// import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+// import { useSelector } from 'react-redux';
+import { store } from '../redux/Store';
 
 // Function to register a new user
 const registerUser = async (userData) => {
@@ -55,10 +58,12 @@ const getTop100 = async () => {
 
 };
 
-const sendMoviesToBackend = async (myMovieArray) => {
-    axios.post("http://localhost:8080/api/v1/demo/recievemovies", myMovieArray, {
+const persistLogout = async (data) => {
+    const jwt = store.getState().user.user.jwt;
+    // console.log(jwt + "/n/n" + data);
+    axios.post("http://localhost:8080/api/v1/demo/recievemovies", data, {
         headers: {
-            'Authorization' : `Bearer ${localStorage.getItem('jwt')}`
+            'Authorization' : `Bearer ${store.getState().user.user.jwt}`
         }
     })
     .then(response => {
@@ -87,4 +92,4 @@ function extractMovieProperties(movie) {
     };
 }
 
-export { registerUser, loginUser, getMovies, getTop100, sendMoviesToBackend };
+export { registerUser, loginUser, getMovies, getTop100, persistLogout };

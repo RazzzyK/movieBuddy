@@ -5,6 +5,7 @@ import com.moviebud.MovieBuddy.auth.AuthenticationRequest;
 import com.moviebud.MovieBuddy.auth.AuthenticationResponse;
 import com.moviebud.MovieBuddy.auth.RegisterRequest;
 import com.moviebud.MovieBuddy.models.Movie;
+import com.moviebud.MovieBuddy.models.PayloadInbound;
 import com.moviebud.MovieBuddy.models.User;
 import com.moviebud.MovieBuddy.services.MovieService;
 import com.moviebud.MovieBuddy.services.UserService;
@@ -73,13 +74,22 @@ public class Controller {
     }
 
     @PostMapping(path = "recievemovies")
-    public void receiveMovies(@RequestBody List<Movie> movies) { //
+    public void receiveMovies(@RequestBody PayloadInbound payload) { //
         // Handle the received movies
         // For example, you can save them to a database or perform other operations
-        System.out.println(movies.get(0));
+        List<Movie> list1 = payload.getWatchedList();
+        List<Movie> list2 = payload.getPendingList();
+
+        // Handle the received movies
+        // For example, you can save them to a database or perform other operations
+        System.out.println("List 1: " + list1);
+        System.out.println("List 2: " + list2);
+
+        //TODO Persists this data from frontend
+
 //        System.out.println("Received movies: " + movies.get(1));
 
-        System.out.println(movieService.saveMovies(movies));
+//        System.out.println(movieService.saveMovies(movies));
     }
 
     @GetMapping(path = "getmovies")
