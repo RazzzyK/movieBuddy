@@ -27,16 +27,21 @@ export const Pendingpage = () => {
             // pauseOnHover={true}
             theme="dark" />
 
-            <h1>Welcome to Movie Buddy!</h1>
+            <h1 className='cursive'>Welcome to Movie Buddy!</h1>
             {/* Add content here */}
             
                 <div className="movie-posters">
-                    {pendingList.map((movie, index) => (
-                        <div key={index} className="movie-poster">
-                            <img src={movie.image} alt={movie.title} />
-                            
-                        </div>
-                    ))}
+                {pendingList.length > 0 ? (
+                    <div className="movie-posters">
+                        {pendingList.map((movie, index) => (
+                            <div key={index} className="movie-poster">
+                                <img src={movie.image} alt={movie.title} />
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <p>No movies in your pending list</p>
+                )}
                 </div>
 
         </div>

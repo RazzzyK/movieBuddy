@@ -10,6 +10,9 @@ import {store, persistor} from './redux/Store';
 import { UserSettings } from './pages/Settings';
 import { Pendingpage } from './pages/Pendingpage';
 import { Watchedpage } from './pages/Watchedpage';
+import './css/BottomNavbar.css';
+import AboutPage from './pages/Aboutpage';
+import ContactPage from './pages/ContactPage';
 
 function App() {
   return (
@@ -24,6 +27,8 @@ function App() {
                   <Route path='/settings' element={<UserSettings />} />
                   <Route path='/pending' element={<Pendingpage />} />
                   <Route path='/watched' element={<Watchedpage />} />
+                  <Route path='/about' element={<AboutPage />} />
+                  <Route path='/contact' element={<ContactPage />} />
               </Routes>
             <BottomNavbar />
           </BrowserRouter>

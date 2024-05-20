@@ -1,0 +1,121 @@
+/* Container for the sidebar and content */
+.homepage-container {
+    display: flex;
+    transition: all 0.3s ease; /* Ensure smooth transition for all changes */
+}
+
+/* Sidebar container */
+.sidebar-container {
+    transition: width 0.3s ease; /* Transition for width change */
+    z-index: 10;
+}
+
+/* Sidebar open state */
+.sidebar-container.open {
+    width: 250px; /* Width when open */
+}
+
+/* Sidebar closed state */
+.sidebar-container.closed {
+    width: 50px; /* Width when closed */
+}
+
+/* Main content container */
+.movie-posters-container {
+    flex: 1; /* Take up remaining space */
+    overflow-y: auto;
+    padding-right: 10px; /* Adjust for scrollbar */
+    transition: margin-left 0.3s ease; /* Transition for margin adjustment */
+}
+
+/* Adjust margin when sidebar is closed */
+.movie-posters-container.sidebar-closed {
+    margin-left: 20px; /* Adjust margin when sidebar is closed */
+}
+
+/* Adjust margin when sidebar is open */
+.movie-posters-container.sidebar-open {
+    margin-left: 250px; /* Adjust margin when sidebar is open */
+}
+
+/* Sidebar styles */
+.sidebar {
+    /* padding-top: 20px; */
+    margin-top: 0;
+    margin-bottom: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: hsl(300, 3%, 11%, 40%);
+    color: #fff;
+    overflow-y: auto;
+    transition: transform 0.3s ease; /* Transition for transform */
+    z-index: 999;
+}
+
+.vertical-text {
+    /* display: flex; */
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    height: 50%;
+    writing-mode: vertical-rl; /* Rotate text vertically */
+    text-orientation: upright;
+    font-size: 18px;
+    color: white;
+    padding: 10px;
+    letter-spacing: 5px; /* Optional: Adjust spacing between letters */
+}
+
+/* Sidebar open state */
+.sidebar.open {
+    width: 250px; /* Width when open */
+    transform: translateX(0); /* No translation */
+}
+
+/* Sidebar closed state */
+.sidebar.closed {
+    width: 250px; /* Width when closed */
+    transform: translateX(-80%); /* Slide out of view  put back at 80*/
+}
+
+/* Toggle button */
+.toggle-btn {
+    position: relative;
+    top: 30px;
+    left: 100px; /* Adjust this to align with the sidebar */
+    width: 50px;
+    height: 30px;
+    background: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: left 0.3s ease; /* Transition for left adjustment */
+}
+
+/* Adjust position when sidebar is closed */
+.toggle-btn.closed {
+    /*left: 0;  Adjust position when sidebar is closed */
+    top:0;
+    left: 50px;
+}
+
+/* Friends list */
+.friends-list {
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.friends-list h2 {
+    margin-top: 0;
+}
+
+.friends-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.friends-list ul li {
+    padding: 10px 0;
+}

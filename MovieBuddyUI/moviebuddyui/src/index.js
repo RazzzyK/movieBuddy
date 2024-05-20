@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { MoviesProvider } from './components/MoviesContext';
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+</style>
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

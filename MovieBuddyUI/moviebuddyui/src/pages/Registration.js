@@ -70,7 +70,7 @@ function RegistrationForm() {
             };
             const response = await loginUser(data);
 
-            localStorage.setItem('jwt', response.token); //Using local storage to save jwt that si returned
+            //localStorage.setItem('jwt', response.token); //Using local storage to save jwt that si returned
 
             //const userObject = response.data;
             const reduxdata = {

@@ -1,3 +1,11 @@
+.cursive {
+  font-family: 'Brush Script MT', cursive;
+  color: rgb(105, 99, 128);
+}
+
+
+
+
 .movie-posters {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

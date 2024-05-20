@@ -31,12 +31,17 @@ export const Watchedpage = () => {
             {/* Add content here */}
             
                 <div className="movie-posters">
-                    {watchedList.map((movie, index) => (
-                        <div key={index} className="movie-poster">
-                            <img src={movie.image} alt={movie.title} />
-                            
-                        </div>
-                    ))}
+                {watchedList.length > 0 ? (
+                    <div className="movie-posters">
+                        {watchedList.map((movie, index) => (
+                            <div key={index} className="movie-poster">
+                                <img src={movie.image} alt={movie.title} />
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    <p>No movies in your already watched list</p>
+                )}
                 </div>
 
         </div>

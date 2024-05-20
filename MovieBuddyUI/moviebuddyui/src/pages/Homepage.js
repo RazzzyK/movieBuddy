@@ -5,6 +5,10 @@ import { setWatchedList, setPendingList } from '../redux/Reducers';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../css/Movie.css';
+import Modal from '../components/Modal';
+import Sidebar from '../components/Sidebar';
+import Slides from '../splash page/Slides';
+import '../splash page/style.css';
 
 export const Homepage = () => {
     const { movies } = useContext(MoviesContext);
@@ -22,6 +26,16 @@ export const Homepage = () => {
             pending: pendingList.some((m) => m.title === movie.title),
         }))
     );
+
+    const [selectedMovie, setSelectedMovie] = useState(null);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+    const friends = [
+        { name: 'John Doe' },
+        { name: 'Jane Smith' },
+        { name: 'Robert Brown' },
+        // Add more friends as needed
+    ];
 
     // Handle Watched button click
     const handleWatchedButtonClick = (index) => {
@@ -57,10 +71,24 @@ export const Homepage = () => {
         dispatch(setPendingList(newPendingList));
     };
 
+    const openModal = (movie) => {
+        setSelectedMovie(movie);
+    };
+
+    const closeModal = () => {
+        setSelectedMovie(null);
+    };
+    const toggleSidebar = () => {
+        setIsSidebarOpen(!isSidebarOpen);
+    };
+
     // const filteredMovies = movies.filter((movie, index) => !statusArray[index].watched && !statusArray[index].pending);
 
     return (
         <div>
+            {isLoggedIn ? (<></>) : (<h1 className='welcome'>Welcome to Movie Buddy!</h1>)}
+        <div className="homepage-container">
+            {/*  */}
             <ToastContainer
             stacked
             position="top-center"
@@ -75,15 +103,30 @@ export const Homepage = () => {
             // pauseOnHover={true}
             theme="dark" />
             
+
+            <div className={`sidebar-container ${isSidebarOpen ? 'open' : 'closed'}`}>
+            {isLoggedIn && (
+                    <>
+                        <Sidebar friends={friends} isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+                        {!isSidebarOpen && (
+                            <div className="vertical-text">
+                                FRIENDS LIST
+                            </div>
+                        )}
+                    </>
+                )}            
+            </div>
+            
+            <div className="movie-posters-container">
             {isLoggedIn ? (
                 <div className="movie-posters">
                     {movies.map((movie, index) => (
-                        <div key={index} className="movie-poster">
+                        <div key={index} className="movie-poster" onClick={() => openModal(movie)}>
                             <img src={movie.image} alt={movie.title} />
                             {!statusArray[index].pending && (
                                 <button 
                                     className={`watched-btn ${statusArray[index].watched ? 'watched' : ''}`}
-                                    onClick={() => handleWatchedButtonClick(index)}
+                                    onClick={(e) => { e.stopPropagation(); handleWatchedButtonClick(index); }}
                                 >
                                     Watched
                                 </button>
@@ -91,7 +134,7 @@ export const Homepage = () => {
                             {!statusArray[index].watched && (
                                 <button 
                                     className={`pending-btn ${statusArray[index].pending ? 'pending' : ''}`}
-                                    onClick={() => handlePendingButtonClick(index)}
+                                    onClick={(e) => { e.stopPropagation(); handlePendingButtonClick(index); }}
                                 >
                                     Want to Watch
                                 </button>
@@ -100,14 +143,21 @@ export const Homepage = () => {
                     ))}
                 </div>
             ) : (
-                <div className="movie-posters">
-                {movies.map((movie, index) => (
-                    <div key={index} className="movie-poster">
-                        <img src={movie.image} alt={movie.title} />
-                    </div>
-                ))}
-            </div>
+                <div className='main-content'>
+                    <Slides />
+                </div>
+                
+            //     <div className="movie-posters">
+            //     {movies.map((movie, index) => (
+            //         <div key={index} className="movie-poster" onClick={() => openModal(movie)}>
+            //             <img src={movie.image} alt={movie.title} />
+            //         </div>
+            //     ))}
+            // </div>
             )}
+            </div>
+            <Modal movie={selectedMovie} onClose={closeModal} />
+        </div>
         </div>
     );
 }
