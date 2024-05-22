@@ -1,36 +1,7 @@
 import { Box, Flex } from "@chakra-ui/react";
 import { Persona, Form, FormLayout, Field, SubmitButton } from "@saas-ui/react";
-// import usePasswordMatch from "@/hooks/pwd";
-// import {  useEffect } from "react";
-// import { useRouter } from 'next/router';
-// import { supabase } from "@/utils/supabase";
-
 
 export const UserSettings = () => {
-//   const router = useRouter();
-
-//   useEffect (() => {
-
-//   supabase.auth.onAuthStateChange((event, session) => {
-    
-//     if (event==="SIGNED_OUT"){
-//         // router.push('/LogIn')
-//     } 
-//   })
-  
-//   },[router]) 
-//   const {
-//     password,
-//     confirmPassword,
-//     isMatch,
-//     handlePasswordChange,
-//     handleConfirmPasswordChange,
-//   } = usePasswordMatch();
- 
-//   const handleSubmit = (event) => {
-//     console.log(event);
-//   };
-
   return (
     <>
       <Box padding="8">

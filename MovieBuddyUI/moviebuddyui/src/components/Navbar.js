@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { setWatchedList, setPendingList } from '../redux/Reducers';
 import 'react-toastify/dist/ReactToastify.css';
 import { persistLogout } from '../client/AxiosClient';
+import { getHome } from '../client/AxiosClient';
 
 export const Navbar = () => {
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);

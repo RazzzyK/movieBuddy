@@ -50,12 +50,34 @@ const getTop100 = async () => {
         var response = await axios.request(top100);
         
         const myMovieArray = response.data.map(movie => extractMovieProperties(movie));
+        // console.log(response.data)
         return myMovieArray;
         //sendMoviesToBackend(myMovieArray);    
     } catch (error) {
         console.error(error);
     }
 
+};
+
+const getHome = async () => {
+    const options = {
+        method: 'GET',
+        url: 'https://movies-api14.p.rapidapi.com/home',
+        headers: {
+          'X-RapidAPI-Key': '4007851b8amshdb2863239ae3aadp12a37ajsn88d83973f21c',
+          'X-RapidAPI-Host': 'movies-api14.p.rapidapi.com'
+        }
+      };
+      
+      try {
+          var response = await axios.request(options);
+        //   console.log(response.data)
+        //   const myHomeList = response.data.map(list => extractList(list));
+          console.log(response.data[0].movies[0].title)  
+          return response.data;
+      } catch (error) {
+          console.error(error);
+      }
 };
 
 const persistLogout = async (data) => {
@@ -92,4 +114,11 @@ function extractMovieProperties(movie) {
     };
 }
 
-export { registerUser, loginUser, getMovies, getTop100, persistLogout };
+function extractList(list) {
+    return {
+        title: list.title,
+        movies: list.movies
+    };
+}
+
+export { registerUser, loginUser, getMovies, getTop100, persistLogout, getHome };

@@ -1,0 +1,70 @@
+/* ------------------------- CONTACT PAGE -------------------------*/
+.contact-page {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.contact-info h1{
+    padding-bottom: 100px;
+}
+
+.contact-info, .contact-form {
+    flex: 1;
+    margin: 0 10px;
+    padding-top: 50PX;
+}
+
+.contact-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.contact-info li {
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    text-align: left;
+    margin-left: 0;
+    font-size: 20px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* ------------------------- ABOUT PAGE -------------------------*/
+.about-page{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.project-description, .team-section{
+    flex: 1;
+    margin: 0 10px;
+    padding-top: 50PX;
+}

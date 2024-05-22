@@ -7,7 +7,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import '../css/Movie.css';
 import Modal from '../components/Modal';
 import Sidebar from '../components/Sidebar';
-import Slides from '../splash page/Slides';
+import Top100Movies from '../slide components/Top100Movies';
+import TrendingMovieSlides from '../slide components/TrendingMovies';
+import NewMovieSlides from '../slide components/NewMovies';
 import '../splash page/style.css';
 
 export const Homepage = () => {
@@ -144,16 +146,15 @@ export const Homepage = () => {
                 </div>
             ) : (
                 <div className='main-content'>
-                    <Slides />
+                    <div className=''>
+                        <h1>IMDb Top 100 Movies</h1>
+                        <div className='top'><Top100Movies /></div>
+                        <h1>Trending Movies</h1>
+                        <div className='bottom'><TrendingMovieSlides /></div>
+                        <h1>New Movies</h1>
+                        <div className='bottom'><NewMovieSlides /></div>
+                        </div>
                 </div>
-                
-            //     <div className="movie-posters">
-            //     {movies.map((movie, index) => (
-            //         <div key={index} className="movie-poster" onClick={() => openModal(movie)}>
-            //             <img src={movie.image} alt={movie.title} />
-            //         </div>
-            //     ))}
-            // </div>
             )}
             </div>
             <Modal movie={selectedMovie} onClose={closeModal} />

@@ -1,10 +1,11 @@
 import React from 'react';
+import '../css/StaticPage.css'
 
 const ContactPage = () => {
   return (
     <div className="contact-page">
-      <h1>Contact Us</h1>
       <div className="contact-info">
+        <h1>Contact Us</h1>
         <p>If you have any questions, feedback, or inquiries, please don't hesitate to reach out to us.</p>
         <p>You can contact us via email or through our social media channels:</p>
         <ul>
@@ -15,7 +16,7 @@ const ContactPage = () => {
         </ul>
       </div>
       <div className="contact-form">
-        <h2>Send Us a Message</h2>
+        <h1>Send Us a Message</h1>
         <form>
           <div className="form-group">
             <label htmlFor="name">Your Name:</label>
