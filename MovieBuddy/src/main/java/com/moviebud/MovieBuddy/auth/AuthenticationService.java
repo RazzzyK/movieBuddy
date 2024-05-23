@@ -53,10 +53,12 @@ public class AuthenticationService {
         );
         var user = repository.findByEmail(request.getEmail())
                 .orElseThrow(); //Throw and Catch correct exception
-
+//        User u = repository.findByEmail(request.getEmail());
         var jwtToken = jwtService.generateToken(user);
 
         return AuthenticationResponse.builder()
+                .firstname(user.getFirstname())
+                .lastname(user.getLastname())
                 .token(jwtToken)
                 .build();
     }

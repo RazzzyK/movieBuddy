@@ -1,86 +1,25 @@
-import { Box, Flex } from "@chakra-ui/react";
-import { Persona, Form, FormLayout, Field, SubmitButton } from "@saas-ui/react";
+import { store } from '../redux/Store';
+import '../css/StaticPage.css';
+
 
 export const UserSettings = () => {
-  return (
-    <>
-      <Box padding="8">
-        <Flex alignItems="start" marginBlock="4">
-          <Persona
-            name="Velda Kiara"
-            secondaryLabel="Pro Plan"
-            size="lg"
-            letterSpacing={"0.78px"}
-          />
-        </Flex>
+  const email = store.getState().user.user.email;
+  const firstName = store.getState().user.user.firstName;
+  const lastName = store.getState().user.user.lastName;
 
-        <Form
-        //   onSubmit={handleSubmit}
-          defaultValues={{
-            firstName: "Velda",
-            lastName: "Kiara",
-            email: "velda@gmail.com",
-          }}
-        >
-          <FormLayout>
-            <Field
-              backgroundColor={"white"}
-              textColor={"black"}
-              name="firstName"
-              label="First Name"
-              width="20.5em"
-              rules={{ required: true }}
-            />
-            <Field
-              backgroundColor={"white"}
-              textColor={"black"}
-              name="lastName"
-              label="Last Name"
-              width="20.5em"
-              rules={{ required: true }}
-            />
-            <Field
-              backgroundColor={"white"}
-              textColor={"black"}
-              name="email"
-              label="Email"
-              type="email"
-              rules={{ required: true }}
-              width="20.5em"
-            />
-            <Field
-              fontFamily={"mono"}
-              backgroundColor={"white"}
-              textColor={"black"}
-              type="password"
-              name="password"
-              label=" New Password"
-            //   value={password}
-              width="18em"
-              rules={{ required: true }}
-            //   onChange={handlePasswordChange}
-            />
-            <Field
-              fontFamily={"mono"}
-              backgroundColor={"white"}
-              textColor={"black"}
-              type="password"
-              name="confirmPassword"
-              label="Confirm Password"
-            //   value={confirmPassword}
-              width="18em"
-              rules={{ required: true }}
-            //   onChange={handleConfirmPasswordChange}
-            />
-            {/* {!isMatch && (
-              <p className="highlight">Passwords do not match</p>
-            )} */}
-            <SubmitButton marginBlockStart="10px" disableIfInvalid>
-              Save
-            </SubmitButton>
-          </FormLayout>
-        </Form>
-      </Box>
-    </>
+  return (
+    <div className="">
+          <label htmlFor="chk" aria-hidden="true">Settings Page</label>
+          {/* <input type="text" id="firstname" name="firstname" placeholder="First name" required=""value={formData.firstname} onChange={handleInputChange} /> */}
+          {/* <input type="text" id="lastname" name="lastname" placeholder="Last name" required=""value={formData.lastname} onChange={handleInputChange} /> */}
+          <label className='label-format'>First Name:</label>
+          <input type="email" id="email" name="email" placeholder="Email" required=""value={firstName} /> {/*onChange={handleInputChange}  */}
+          <label className='label-format'>Last Name:</label>
+          <input type="email" id="email" name="email" placeholder="Email" required=""value={lastName} /> {/*onChange={handleInputChange}  */}
+          <label className='label-format'>Email:</label>
+          <input type="email" id="email" name="email" placeholder="Email" required=""value={email} /> {/*onChange={handleInputChange}  */}
+          {/* <input type="password" id="password" name="password" placeholder="Password" required=""value={formData.password} onChange={handleInputChange} /> */}
+          
+  </div>
   );
 };

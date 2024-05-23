@@ -4,6 +4,8 @@ import { combineReducers } from 'redux';
 const initialState = {
     isLoggedIn: false,
     user: {
+        firstName: '',
+        lastName: '',
         email: '',
         jwt: ''
     }
@@ -29,6 +31,8 @@ function userReducer(state = initialState, action) {
                 ...state,
                 isLoggedIn: false,
                 user: {
+                    firstName: '',
+                    lastName: '',
                     email: '',
                     jwt: ''
                 },

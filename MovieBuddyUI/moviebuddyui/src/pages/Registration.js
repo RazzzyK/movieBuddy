@@ -74,6 +74,8 @@ function RegistrationForm() {
 
             //const userObject = response.data;
             const reduxdata = {
+                firstName: response.firstname,
+                lastName: response.lastname,
                 email: username,
                 jwt: response.token
             }

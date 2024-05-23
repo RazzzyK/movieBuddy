@@ -40,6 +40,14 @@ public class User implements UserDetails { //UserDetails help with Spring Securi
         return List.of(new SimpleGrantedAuthority(role.name()));
     }
 
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
     @Override
     public String getUsername() {
         return email;
